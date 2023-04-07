@@ -1,0 +1,219 @@
+-- This is an on-going passion project where I took a bank statement from one month and manually inserted the data to create a table.
+-- I then asked and answered important questions about the data.
+
+CREATE TABLE BIT_DB.Feb2023BankStatement (
+id INTEGER PRIMARY KEY,
+'Posting Date' DATE,
+'Transaction Description' VARCHAR NOT NULL,
+'Deposits & Other Credits (+)' DECIMAL(4, 2) NOT NULL,
+'Withdrawals & Other Debits (-)' DECIMAL(4, 2) NOT NULL,
+'Daily Balance' DECIMAL(4, 2) NOT NULL);
+
+SELECT * FROM BIT_DB.Feb2023BankStatement;
+
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (1, '2023-01-10', 'CASH APP*CASH OUT, Visa Direct, US', 98.25, ' ', ' ');
+UPDATE BIT_DB.Feb2023BankStatement SET 'Posting Date' = '2023-01-10' WHERE id = 1;
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (2, '2023-01-10', 'PAPA JOHNS #4561, 510-481-7272', ' ', 39.39, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (3, '2023-01-10', 'NETFLIX.COM', ' ', 9.99, 2012.49);
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (4, '2023-01-11', 'SAFEWAY #2315, SAN LEANDRO', ' ', 78.05, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (5, '2023-01-11', 'AMZN Mktp US*LI2DY4DA3Amzn.com/bill', ' ', 49.61, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (6, '2023-01-11', 'Gympass US LLC, 844-4784744', ' ', 11.99, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (7, '2023-01-11', 'COMCAST 8155400 591311186', ' ', 55.48, 1817.36);
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (8, '2023-01-12', 'APPLE.COM BILL, 866-712-7753', ' ', 21.98, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (9, '2023-01-12', 'PURCHASE ON 01/12, 7-ELEVEN, 15651 WASHINGTON ASAN LORENZO, CA', ' ', 14.94, 1780.44);
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (10, '2023-01-13', 'TESLA MOTORS, IN PAYROLL', 1665.42, ' ', ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (11, '2023-01-13', 'DD DOORDASH ONOHAWAII 855-973-1040', ' ', 23.79, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (12, '2023-01-13', 'CSC ServiceWorks, Inc.Plainview', ' ', 10.00, 3412.07);
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (13, '2023-01-17', 'CASH APP*CASH OUT, Visa Direct, US', 25.54, ' ', ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (14, '2023-01-17', 'MOBILE DEPOSIT - XXXXXXXXX0230', 200.00, ' ', ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (15, '2023-01-17', 'IN N OUT BURGER 222 SAN LEANDRO', ' ', 7.53, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (16, '2023-01-17', 'ATM CASH WITHDRAWAL ON 01/13, EFT, 31861 Alvarado BlvUnion City, CA', ' ', 63.00, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (17, '2023-01-17', '20024 CRUNCH SAN LORENSAN LORENZO', ' ', 3.87, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (18, '2023-01-17', '365 Market, 888 432-32TROY', ' ', 1.38, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (19, '2023-01-17', '365 Market, 888 432-32TROY', ' ', 1.92, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (20, '2023-01-17', 'PURCHASE ON 01/15, A ONE GAS 376 LEWELLING BLVDSAN LORENZO, CA', ' ', 34.26, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (21, '2023-01-17', '365 Market, 888 432-32TROY', ' ', 5.07, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (22, '2023-01-17', '365 Market, 888 432-32TROY', ' ', 3.35, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (23, '2023-01-17', '365 Market, 888 432-32TROY', ' ', 2.19, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (24, '2023-01-17', '365 Market, 888 432-32TROY', ' ', 1.72, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (25, '2023-01-17', 'Spotify USA, 877-7781161', ' ', 9.99, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (26, '2023-01-17', 'NON-M&T ATM FEE ON 01/13, EFT 31861 Alvarado BlvUnion City, CA', ' ', 3.00, 3500.33);
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (27, '2023-01-18', 'HORSESHOE LAS VEGAS 8662094732', ' ', 45.00, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (28, '2023-01-18', '20024 CRUNCH SAN LORENSAN LORENZO', ' ', 5.81, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (29, '2023-01-18', '365 Market, 888 432-32TROY', ' ', 1.59, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (30, '2023-01-18', '365 Market, 888 432-32TROY', ' ', 1.72, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (31, '2023-01-18', 'TESLA CAFE FREMONT', ' ', 11.61, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (32, '2023-01-18', '365 Market, 888 432-32TROY', ' ', 3.35, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (33, '2023-01-18', '365 Market, 888 432-32TROY', ' ', 1.72, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (34, '2023-01-18', '365 Market, 888 432-32TROY', ' ', 1.72, 3427.81);
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (35, '2023-01-19', 'STARBUCKS 800-782-7282', ' ', 5.65, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (36, '2023-01-19', '365 Market, 888 432-32TROY', ' ', 3.35, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (37, '2023-01-19', 'TESLA CAFE FREMONT', ' ', 5.24, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (38, '2023-01-19', '365 Market, 888 432-32TROY', ' ', 1.72, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (39, '2023-01-19', '76 - WARM SPRINGS AUTOFREMONT', ' ', 15.35, 3396.50);
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (40, '2023-01-20', '20024 CRUNCH SAN LORENSAN LORENZO', ' ', 5.81, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (41, '2023-01-20', 'TESLA CAFE FREMONT', ' ', 4.78, 3385.91);
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (42, '2023-01-23', '365 Market, 888 432-32TROY', ' ', 1.92, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (43, '2023-01-23', '365 Market, 888 432-32TROY', ' ', 4.12, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (44, '2023-01-23', '365 Market, 888 432-32TROY', ' ', 2.39, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (45, '2023-01-23', '365 Market, 888 432-32TROY', ' ', 1.72, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (46, '2023-01-23', '365 Market, 888 432-32TROY', ' ', 1.81, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (47, '2023-01-23', '365 Market, 888 432-32TROY', ' ', 5.07, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (48, '2023-01-23', 'IN N OUT BURGER 222 SAN LEANDRO', ' ', 7.53, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (49, '2023-01-23', 'CSC ServiceWorks, Inc.Plainview', ' ', 10.00, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (50, '2023-01-23', 'CSC ServiceWorks, Inc.Plainview', ' ', 5.00, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (51, '2023-01-23', 'CHIPOTLE ONLINE, CHIPOTLE.COM', ' ', 30.02, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (52, '2023-01-23', 'APPLE.COM BILL, 866-712-7753', ' ', 2.99, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (53, '2023-01-23', 'MCDONALDS F7841, HAYWARD', ' ', 14.57, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (54, '2023-01-23', 'PURCHASE ON 01/21, A ONE GAS 376 LEWELLING BLVDSAN LORENZO, CA', ' ', 34.47, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (55, '2023-01-23', 'ALDENGATE CARWASH SAN JOSE', ' ', 9.00, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (56, '2023-01-23', 'YUMMY RESTAURANT HAYWARD', ' ', 69.69, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (57, '2023-01-23', '365 Market, 888 432-32TROY', ' ', 3.35, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (58, '2023-01-23', '365 Market, 888 432-32TROY', ' ', 2.53, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (59, '2023-01-23', '365 Market, 888 432-32TROY', ' ', 1.72, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (60, '2023-01-23', 'Assurant INS.PREM', ' ', 66.00, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (61, '2023-01-23', 'PGANDE WEB ONLINE', ' ', 77.81, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (62, '2023-01-23', 'WELLS FARGO AUTO FEE & PMTS', ' ', 224.83, 2809.37);
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (63, '2023-01-24', 'STRAIGHTTALK*AIRTIME 877-430-2355', ' ', 47.25, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (64, '2023-01-24', '365 Market, 888 432-32TROY', ' ', 1.92, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (65, '2023-01-24', '365 Market, 888 432-32TROY', ' ', 3.35, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (66, '2023-01-24', 'TESLA CAFE FREMONT', ' ', 13.33, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (67, '2023-01-24', '365 Market, 888 432-32TROY', ' ', 2.53, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (68, '2023-01-24', '365 Market, 888 432-32TROY', ' ', 1.92, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (69, '2023-01-24', '365 Market, 888 432-32TROY', ' ', 1.72, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (70, '2023-01-24', '365 Market, 888 432-32TROY', ' ', 1.72, 2735.63);
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (71, '2023-01-25', '20024 CRUNCH SAN LORENSAN LORENZO', ' ', 2.22, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (72, '2023-01-25', '20024 CRUNCH SAN LORENSAN LORENZO', ' ', 5.81, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (73, '2023-01-25', '365 Market, 888 432-32TROY', ' ', 2.24, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (74, '2023-01-25', '365 Market, 888 432-32TROY', ' ', 3.35, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (75, '2023-01-25', 'TESLA CAFE FREMONT', ' ', 10.47, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (76, '2023-01-25', '365 Market, 888 432-32TROY', ' ', 4.12, 2707.42);
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (77, '2023-01-26', 'CASH APP*CASH OUT Visa Direct, US', 198.46, ' ', ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (78, '2023-01-26', '76 - UNITED PACIFIC 54SAN LORENZO', ' ', 10.12, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (79, '2023-01-26', 'CHIPOTLE 0976 FREMONT', ' ', 24.42, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (80, '2023-01-26', 'CSJ CONVNTION CTR GARA4087941090', ' ', 10.00, 2861.34);
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (81, '2023-01-27', 'TESLA MOTORS, IN PAYROLL', 2054.88, ' ', ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (82, '2023-01-27', '5208 GREAT CLIPS AT GRSAN LEANDRO', ' ', 40.00, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (83, '2023-01-27', 'SAFEWAY #2315 SAN LEANDRO', ' ', 115.94, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (84, '2023-01-27', '365 Market, 888 432-32TROY', ' ', 1.29, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (85, '2023-01-27', 'TESLA CAFE FREMONT', ' ', 9.46, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (86, '2023-01-27', '365 Market, 888 432-32TROY', ' ', 3.35, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (87, '2023-01-27', '365 Market, 888 432-32TROY', ' ', 1.72, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (88, '2023-01-27', '365 Market, 888 432-32TROY', ' ', 1.72, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (89, '2023-01-27', '365 Market, 888 432-32TROY', ' ', 1.99, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (90, '2023-01-27', 'PURCHASE ON 01/26, A ONE GAS 376 LEWELLING BLVDSAN LORENZO, CA', ' ', 35.64, 4705.11);
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (91, '2023-01-30', 'CASH APP*CASH OUT Visa Direct, US', 43.23, ' ', ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (92, '2023-01-30', '20024 CRUNCH SAN LORENSAN LORENZO', ' ', 5.81, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (93, '2023-01-30', 'DOMINOS 7934 510-866-3030', ' ', 42.31, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (94, '2023-01-30', 'PARAMOUNT+ 888-274-5343', ' ', 6.37, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (95, '2023-01-30', 'BB DINER FREMONT #168 FREMONT', ' ', 45.65, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (96, '2023-01-30', 'EXPRESS #1751 GILROY', ' ', 33.79, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (97, '2023-01-30', 'TBL Gilroy, Gilroy', ' ', 3.27, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (98, '2023-01-30', 'PURCHASE ON 01/28, FAMOUSFOOTWEAR681 LEAVESLY ROAD GILROY, CA', ' ', 27.27, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (99, '2023-01-30', 'APPLEBEES 897502089753GILROY', ' ', 41.34, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (100, '2023-01-30', 'PIN CALVIN KLEIN #005 GILROY', ' ', 65.46, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (101, '2023-01-30', '365 Market, 888 432-32TROY', ' ', 1.59, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (102, '2023-01-30', '365 Market, 888 432-32TROY', ' ', 1.92, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (103, '2023-01-30', '365 Market, 888 432-32TROY', ' ', 2.53, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (104, '2023-01-30', '365 Market, 888 432-32TROY', ' ', 1.92, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (105, '2023-01-30', 'CANTEEN VENDING, SAN JOSE', ' ', 1.85, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (106, '2023-01-30', 'APPLECARD GSBANK PAYMENT', ' ', 124.91, 4342.35);
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (107, '2023-01-31', 'SCHWAB LQ ACH DEPOSIT', 600.00, ' ', ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (108, '2023-01-31', 'APPLE.COM BILL, 408-974-1010', ' ', 11.49, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (109, '2023-01-31', 'CVS PHARMACY #09876 SAN LEANDRO', ' ', 4.14, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (110, '2023-01-31', 'CVS PHARMACY #09876 SAN LEANDRO', ' ', 15.75, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (111, '2023-01-31', 'CSC ServiceWorks, Inc.Plainview', ' ', 10.00, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (112, '2023-01-31', 'CSC ServiceWorks, Inc.Plainview', ' ', 5.00, 4895.97);
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (113, '2023-02-02', 'Microsoft*Subscriptionmsbill.info', ' ', 10.62, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (114, '2023-02-02', 'CHIPOTLE ONLINE, CHIPOTLE.COM', ' ', 24.95, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (115, '2023-02-02', 'PINNACLE-59201BP WEB PMTS', ' ', 1948.82, 2911.58);
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (116, '2023-02-03', 'FRANCHISE TAX BD CASTTAXRFD', 762.00, ' ', ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (117, '2023-02-03', 'STARBUCKS 800-782-7282', ' ', 7.90, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (118, '2023-02-03', '76 - UNITED PACIFIC 54SAN LORENZO', ' ', 28.44, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (119, '2023-02-03', '76 - UNITED PACIFIC 54SAN LORENZO', ' ', 10.30, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (120, '2023-02-03', 'CARDMEMBER SERV WEB PYMT', ' ', 50.00, 3576.94);
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (121, '2023-02-06', 'CASH APP*CASH OUT Visa Direct US', 52.07, ' ', ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (122, '2023-02-06', 'SAFEWAY #2315, SAN LEANDRO', ' ', 24.40, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (123, '2023-02-06', 'MCDONALDS F7841, HAYWARD', ' ', 13.15, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (124, '2023-02-06', 'CHIPOTLE 1529, UNION CITY', ' ', 17.83, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (125, '2023-02-06', 'YELPINC*CHOWNOW PAPA JWWW.YELP.COM', ' ', 38.44, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (126, '2023-02-06', 'DD DOORDASH PAPAJOHNS 855-973-1040', ' ', 35.26, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (127, '2023-02-06', 'JACK IN THE BOX 0588 LATHROP', ' ', 9.66, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (128, '2023-02-06', '916PARK.COM', ' ', 7.00, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (129, '2023-02-06', 'IRON HORSE TAVERN SACRAMENTO', ' ', 25.98, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (130, '2023-02-06', 'IRON HORSE TAVERN SACRAMENTO', ' ', 34.36, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (131, '2023-02-06', 'CITYOFSAC-PRKNGPAYDISPSACRAMENTO', ' ', 4.50, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (132, '2023-02-06', 'STAGE NINE - G. WILLIKSACRAMENTO', ' ', 9.78, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (133, '2023-02-06', 'FINNEGANS PUB, SACRAMENTO', ' ', 26.25, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (134, '2023-02-06', 'PP*DUTCHBROSLL, GRANTS PASS', ' ', 11.60, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (135, '2023-02-06', 'PURCHASE ON 02/05, A ONE GAS 376 LEWELLING BLVDSAN LORENZO, CA', ' ', 40.14, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (136, '2023-02-06', 'BASKIN #361079 Q35, HAYWARD', ' ', 11.20, 3319.46);
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (137, '2023-02-07', 'UNITED FIN CAS INS PREM', ' ', 193.33, 3126.13);
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (138, '2023-02-08', 'IN N OUT BURGER 222 SAN LEANDRO', ' ', 7.53, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (139, '2023-02-08', 'SAFEWAY #2315, SAN LEANDRO', ' ', 94.82, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (140, '2023-02-08', 'DUNKIN #356174, SAN JOSE', ' ', 9.27, ' ');
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (141, '2023-02-08', 'GREAT VAPE LLC, 408-746-9971', ' ', 61.49, 2953.02);
+INSERT INTO BIT_DB.Feb2023BankStatement VALUES (142, '2023-02-09', 'CHIPOTLE ONLINE, CHIPOTLE.COM', ' ', 27.12, 2925.90);
+
+--#1. What is the total number of withdrawals? Deposits?
+SELECT COUNT("Withdrawals & Other Debits (-)") AS 'Number of Withdrawals'
+FROM BIT_DB.Feb2023BankStatement
+WHERE "Withdrawals & Other Debits (-)" <> ' ';
+
+SELECT COUNT("Deposits & Other Credits (+)") AS 'Number of Deposits'
+FROM BIT_DB.Feb2023BankStatement
+WHERE "Deposits & Other Credits (+)" <> ' ';
+
+-- Note: In answering this question, it was important for me to use the WHERE clause to filter out any rows that contained no information in the selected columns.
+--       Including those rows would produce an incorrect count.
+
+--#2. What is the total amount of withdrawals? Deposits?
+SELECT ROUND(SUM("Withdrawals & Other Debits (-)")) AS 'Sum of Withdrawals'
+FROM BIT_DB.Feb2023BankStatement;
+
+SELECT ROUND(SUM("Deposits & Other Credits (+)")) AS 'Sum of Deposits'
+FROM BIT_DB.Feb2023BankStatement;
+
+-- Note: Here, it is not neccessary to filter out blank rows of information because
+--       I'm using the SUM function, so it's only adding up the actual values and not including the blank spaces.
+--       When ran in the program, the following query proves that the blank spaces have no effect on the outcome,
+--       as the outcome is the same with or without the WHERE clause.
+
+SELECT ROUND(SUM("Withdrawals & Other Debits (-)")) AS 'Sum of Withdrawals'
+FROM BIT_DB.Feb2023BankStatement
+WHERE "Withdrawals & Other Debits (-)" <> ' ';
+
+--#3. What is the average amount withdrawn? Deposited?
+SELECT ROUND(AVG("Withdrawals & Other Debits (-)")) AS 'Avg Amount Withdrawn'
+FROM BIT_DB.Feb2023BankStatement
+WHERE "Withdrawals & Other Debits (-)" <> ' ';
+
+SELECT ROUND(AVG("Deposits & Other Credits (+)")) AS 'Avg Amount Deposited'
+FROM BIT_DB.Feb2023BankStatement
+WHERE "Deposits & Other Credits (+)" <> ' ';
+
+-- Note: Similar to question 1, it was important again that I used the WHERE clause to filter out any rows with no information.
+--       Including those rows would result in an incorrect average.
+
+--#4. What transaction has the most number of withdrawals and what is the total amount spent?
+SELECT "Transaction Description", 
+COUNT("Withdrawals & Other Debits (-)") AS "Total Withdrawals"
+FROM BIT_DB.Feb2023BankStatement
+GROUP BY "Transaction Description"
+ORDER BY "Total Withdrawals" DESC
+LIMIT 1;
+
+SELECT "Transaction Description", 
+SUM("Withdrawals & Other Debits (-)") AS "Total Spent"
+FROM BIT_DB.Feb2023BankStatement
+WHERE "Transaction Description" LIKE '365 Market%';
+
+--#5. What are the top 5 transactions with the most amount spent?
+SELECT 
+"Transaction Description", 
+ROUND(SUM("Withdrawals & Other Debits (-)")) AS 'Total Spent'
+FROM BIT_DB.Feb2023BankStatement
+GROUP BY "Transaction Description"
+ORDER BY "Total Spent" DESC
+LIMIT 5;
+-- Note to self: make sure it's adding up total amount spent for each transaction with the same name
