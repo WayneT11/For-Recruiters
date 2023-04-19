@@ -12,7 +12,6 @@ id INTEGER PRIMARY KEY,
 SELECT * FROM BIT_DB.Feb2023BankStatement;
 
 INSERT INTO BIT_DB.Feb2023BankStatement VALUES (1, '2023-01-10', 'CASH APP*CASH OUT, Visa Direct, US', 98.25, ' ', ' ');
-UPDATE BIT_DB.Feb2023BankStatement SET 'Posting Date' = '2023-01-10' WHERE id = 1;
 INSERT INTO BIT_DB.Feb2023BankStatement VALUES (2, '2023-01-10', 'PAPA JOHNS #4561, 510-481-7272', ' ', 39.39, ' ');
 INSERT INTO BIT_DB.Feb2023BankStatement VALUES (3, '2023-01-10', 'NETFLIX.COM', ' ', 9.99, 2012.49);
 INSERT INTO BIT_DB.Feb2023BankStatement VALUES (4, '2023-01-11', 'SAFEWAY #2315, SAN LEANDRO', ' ', 78.05, ' ');
@@ -155,7 +154,7 @@ INSERT INTO BIT_DB.Feb2023BankStatement VALUES (140, '2023-02-08', 'DUNKIN #3561
 INSERT INTO BIT_DB.Feb2023BankStatement VALUES (141, '2023-02-08', 'GREAT VAPE LLC, 408-746-9971', ' ', 61.49, 2953.02);
 INSERT INTO BIT_DB.Feb2023BankStatement VALUES (142, '2023-02-09', 'CHIPOTLE ONLINE, CHIPOTLE.COM', ' ', 27.12, 2925.90);
 
---#1. What is the total number of withdrawals? Deposits?
+-- #1. What is the total number of withdrawals? Deposits?
 SELECT COUNT("Withdrawals & Other Debits (-)") AS 'Number of Withdrawals'
 FROM BIT_DB.Feb2023BankStatement
 WHERE "Withdrawals & Other Debits (-)" <> ' ';
@@ -167,7 +166,7 @@ WHERE "Deposits & Other Credits (+)" <> ' ';
 -- Note: In answering this question, it was important for me to use the WHERE clause to filter out any rows that contained no information in the selected columns.
 --       Including those rows would produce an incorrect count.
 
---#2. What is the total amount of withdrawals? Deposits?
+-- #2. What is the total amount of withdrawals? Deposits?
 SELECT ROUND(SUM("Withdrawals & Other Debits (-)")) AS 'Sum of Withdrawals'
 FROM BIT_DB.Feb2023BankStatement;
 
@@ -183,7 +182,7 @@ SELECT ROUND(SUM("Withdrawals & Other Debits (-)")) AS 'Sum of Withdrawals'
 FROM BIT_DB.Feb2023BankStatement
 WHERE "Withdrawals & Other Debits (-)" <> ' ';
 
---#3. What is the average amount withdrawn? Deposited?
+-- #3. What is the average amount withdrawn? Deposited?
 SELECT ROUND(AVG("Withdrawals & Other Debits (-)")) AS 'Avg Amount Withdrawn'
 FROM BIT_DB.Feb2023BankStatement
 WHERE "Withdrawals & Other Debits (-)" <> ' ';
@@ -195,7 +194,7 @@ WHERE "Deposits & Other Credits (+)" <> ' ';
 -- Note: Similar to question 1, it was important again that I used the WHERE clause to filter out any rows with no information.
 --       Including those rows would result in an incorrect average.
 
---#4. What transaction has the most number of withdrawals and what is the total amount spent?
+-- #4. What transaction has the most number of withdrawals and what is the total amount spent?
 SELECT "Transaction Description", 
 COUNT("Withdrawals & Other Debits (-)") AS "Total Withdrawals"
 FROM BIT_DB.Feb2023BankStatement
@@ -208,14 +207,14 @@ SUM("Withdrawals & Other Debits (-)") AS "Total Spent"
 FROM BIT_DB.Feb2023BankStatement
 WHERE "Transaction Description" LIKE '365 Market%';
 
---#5. What are the top 5 transactions with the most amount spent?
+-- #5. What are the top 5 transactions with the most amount spent?
 SELECT 
 "Transaction Description", 
 ROUND(SUM("Withdrawals & Other Debits (-)")) AS 'Total Spent'
 FROM BIT_DB.Feb2023BankStatement
 GROUP BY "Transaction Description"
 ORDER BY "Total Spent" DESC
-LIMIT 5;
+;
 
 -- #6. What is the average daily balance for the month?
 SELECT ROUND(AVG("Daily Balance")) AS 'Average Balance'
@@ -223,32 +222,57 @@ FROM BIT_DB.Feb2023BankStatement
 WHERE "Daily Balance" <> ' ';
 
 -- #7. Combine identical transaction types and display the total amount spent and total number of transactions for each transaction.
-WITH tempTable AS (
 SELECT 
-id, 
 "Transaction Description", 
-"Withdrawals & Other Debits (-)", 
-SUM("Withdrawals & Other Debits (-)") OVER (PARTITION BY "Transaction Description") AS 'Total Withdrawn'
+ROUND(SUM("Withdrawals & Other Debits (-)")) AS 'Total Spent', 
+COUNT("Transaction Description") AS 'Total Transactions'
 FROM Feb2023BankStatement
 WHERE "Withdrawals & Other Debits (-)" <> ' '
+GROUP BY "Transaction Description"
+ORDER BY "Total Spent" DESC;
+
+-- #8. Using the query from #7 as the inner query for a CTE, what is the average amount spent?
+WITH tempTable AS (
+SELECT 
+"Transaction Description", 
+ROUND(SUM("Withdrawals & Other Debits (-)")) AS 'Total Spent', 
+COUNT("Transaction Description") AS 'Total Transactions'
+FROM Feb2023BankStatement
+WHERE "Withdrawals & Other Debits (-)" <> ' '
+GROUP BY "Transaction Description"
+)
+SELECT 
+ROUND(AVG("Total Spent")) AS 'Avg Spent'
+FROM tempTable;
+
+-- Note: This question may seem similar to #3, but the difference is in #3, I found the average amount spent based on every individual transaction and withdrawal.
+--       Here, I first grouped together every transaction with identical descriptions and totaled the amount withdrawn.
+--       While the total sum of withdrawals remains the same,
+--       the number of transactions to divide by went down, thus producing a different average than the one from #3.
+
+-- #9. Based on the average from question 8, create a new temporary column, labeling each transaction as 'Above Avg', 'Average', or 'Below Avg'.
+WITH tempTable AS (
+SELECT 
+"Transaction Description", 
+ROUND(SUM("Withdrawals & Other Debits (-)")) AS 'Total Spent', 
+COUNT("Transaction Description") AS 'Total Transactions'
+FROM Feb2023BankStatement
+WHERE "Withdrawals & Other Debits (-)" <> ' '
+GROUP BY "Transaction Description"
+ORDER BY "Total Spent" DESC
 )
 
 SELECT 
 "Transaction Description", 
-ROUND(AVG("Total Withdrawn")) AS 'Total Spent', 
-COUNT("Transaction Description") AS 'Total Transactions'
-FROM tempTable
-GROUP BY "Transaction Description"
-ORDER BY "Total Transactions" DESC;
+"Total Spent", 
+"Total Transactions", 
+    CASE
+        WHEN "Total Spent" > 72 THEN 'Above Avg'
+        WHEN "Total Spent" = 72 THEN 'Average'
+        WHEN "Total Spent" < 72 THEN 'Below Avg'
+    END AS 'Avg Grade'
+FROM tempTable;
 
--- Note: For this query, I first used the window function "OVER (PARTITION BY )" to give me the sum of the transactions.
---       and it was important that I used the "PARTITION BY" clause so that it only produced the sum of transactions with the same description.
---       Then, I simply assigned the window function as the inner query of a common table expression (CTE),
---       and the outer query is where I condensed the transactions to only list one of the same transaction instead of multiple.
---       I did this by using the "AVG" aggregate function,
---       knowing that the AVG would be the same value as the value produced in the 'Total Withdrawn' column in the window function,
---       while also condensing the transaction description to only list one of multiple identical descriptions.
---       It was also important to add the "GROUP BY" statement, otherwise, the query only produces one row.
 
 
 
