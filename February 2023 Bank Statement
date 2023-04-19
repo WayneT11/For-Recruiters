@@ -230,6 +230,7 @@ id,
 "Withdrawals & Other Debits (-)", 
 SUM("Withdrawals & Other Debits (-)") OVER (PARTITION BY "Transaction Description") AS 'Total Withdrawn'
 FROM Feb2023BankStatement
+WHERE "Withdrawals & Other Debits (-)" <> ' '
 )
 
 SELECT 
