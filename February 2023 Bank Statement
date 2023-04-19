@@ -217,3 +217,5 @@ GROUP BY "Transaction Description"
 ORDER BY "Total Spent" DESC
 LIMIT 5;
 -- Note to self: make sure it's adding up total amount spent for each transaction with the same name
+
+
